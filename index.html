@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#09090b" />
+  <meta name="description" content="Flória por Nathalia Dias — Music Design, Curadoria Sonora e DJ para Marcas, Studios Wellness, Vernissages e Gastronomia em Curitiba e região." />
+  <title>Flória — Music Design & Sound Curation | Nathalia Dias</title>
+  
+  <!-- Tailwind CSS & Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', 'Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'serif']
+          },
+          colors: {
+            floria: {
+              obsidian: '#09090b',
+              surface: 'rgba(18, 18, 22, 0.72)',
+              border: 'rgba(255, 255, 255, 0.08)',
+              accent: '#f97316',
+              accentHover: '#ea580c'
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Design System Apple / Studio Glassmorphism */
+    .ios-glass {
+      background: rgba(14, 14, 18, 0.78);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1), 0 20px 40px -15px rgba(0,0,0,0.6);
+    }
+    
+    .ios-glass-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.012) 100%);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08), 0 16px 36px rgba(0,0,0,0.36);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .ios-glass-card:hover {
+      border-color: rgba(249, 115, 22, 0.38);
+      transform: translateY(-2px);
+      box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 24px 48px -12px rgba(249, 115, 22, 0.1);
+    }
+
+    /* Form Fields Apple Style */
+    .ios-input {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: #fff;
+      transition: all 0.2s ease;
+    }
+    .ios-input:focus {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: #f97316;
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+      outline: none;
+    }
+    .ios-input option {
+      background: #141417;
+      color: #ffffff;
+    }
+
+    /* Scroll Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Marquee lento e elegante */
+    @keyframes marqueeSlow {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee-slow {
+      display: flex;
+      width: max-content;
+      animation: marqueeSlow 70s linear infinite;
+    }
+    .animate-marquee-slow:hover {
+      animation-play-state: paused;
+    }
+
+    /* Ambient Warm Glow */
+    .ambient-glow {
+      background: radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.14) 0%, rgba(249, 115, 22, 0.03) 45%, transparent 70%);
+    }
+
+    /* Video Viewport */
+    .video-viewport {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      background-color: #000;
+    }
+  </style>
+</head>
+<body class="bg-[#09090b] text-stone-100 antialiased selection:bg-orange-500 selection:text-white">
+
+  <!-- DYNAMIC ISLAND HEADER / NAV -->
+  <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4">
+    <nav class="ios-glass flex items-center justify-between gap-4 px-5 py-2.5 rounded-full max-w-2xl w-full">
+      <a href="#top" class="font-serif tracking-wider font-semibold text-lg flex items-center gap-1.5">
+        FLÓRIA<span class="w-1.5 h-1.5 rounded-full bg-orange-500 inline-block"></span>
+      </a>
+      
+      <div class="hidden md:flex items-center gap-6 text-xs font-medium text-stone-300">
+        <a href="#solucoes" class="hover:text-white transition">Ambientes</a>
+        <a href="#generos" class="hover:text-white transition">Identidade Sonora</a>
+        <a href="#showcase" class="hover:text-white transition">Performance</a>
+        <a href="#sobre" class="hover:text-white transition">A Artista</a>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <a href="#presskit" class="hidden sm:inline-flex text-[10px] font-semibold tracking-wider uppercase px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-stone-300 border border-white/10 transition">
+          Press Kit PDF
+        </a>
+        <a href="#briefing" class="text-[11px] font-bold tracking-wide uppercase px-4 py-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white shadow-md shadow-orange-500/20 transition">
+          Briefing B2B
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top" class="relative pt-28 pb-16 overflow-hidden">
+    <!-- Ambient Atmospheric Glow -->
+    <div class="ambient-glow absolute -top-48 left-1/2 -translate-x-1/2 w-[900px] h-[900px] pointer-events-none"></div>
+
+    <!-- HERO SECTION -->
+    <section class="max-w-6xl mx-auto px-5 pt-8 pb-12">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-7 reveal space-y-6">
+          
+          <!-- Badges de Autoridade e Formação -->
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-semibold tracking-wide">
+              <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+              Music Design & Experiência de Marca
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-medium text-stone-300">
+              Formada pela Yellow DJ Academy
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-medium text-stone-300">
+              Mentoria de Kaká Franco
+            </span>
+          </div>
+          
+          <h1 class="text-4xl sm:text-6xl font-serif font-medium leading-[1.06] tracking-tight text-white">
+            A música certa define <br>
+            <span class="italic text-stone-400 font-light">quanto tempo o seu cliente fica.</span>
+          </h1>
+
+          <p class="text-stone-300 text-base sm:text-lg max-w-xl font-light leading-relaxed">
+            Curadoria musical estratégica para inaugurações, lojas de design, studios wellness e hospitalidade. Uma assinatura sonora elegante e calibrada para valorizar a arquitetura e os encontros do seu espaço.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#briefing" class="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white text-xs font-bold uppercase tracking-widest px-7 py-4 rounded-full shadow-lg shadow-orange-500/20 transition-all hover:scale-[1.02]">
+              Solicitar Briefing
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="#solucoes" class="inline-flex items-center gap-2 px-5 py-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-xs font-semibold tracking-wide text-stone-200 transition">
+              Soluções por Espaço
+            </a>
+          </div>
+
+          <!-- Métricas e Credenciais Refinadas -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10 max-w-lg">
+            <div>
+              <p class="text-2xl font-serif font-bold text-white">50+</p>
+              <p class="text-[10px] uppercase tracking-wider text-stone-400 mt-0.5">Experiências Conduzidas</p>
+            </div>
+            <div>
+              <p class="text-2xl font-serif font-bold text-white">100%</p>
+              <p class="text-[10px] uppercase tracking-wider text-stone-400 mt-0.5">Pensado para o Contexto</p>
+            </div>
+            <div>
+              <p class="text-xs sm:text-sm font-semibold text-orange-400 leading-snug">Setup Profissional</p>
+              <p class="text-[10px] uppercase tracking-wider text-stone-400 mt-0.5">Acústica & Design Clean</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Visual da Artista / Sunset -->
+        <div class="lg:col-span-5 reveal">
+          <div class="ios-glass-card rounded-[32px] p-2 relative overflow-hidden group">
+            <img src="https://i.imgur.com/ezJ02g8.jpeg" alt="Nathalia Dias - Flória DJ & Sound Curator" class="rounded-[26px] w-full h-[390px] sm:h-[470px] object-cover object-center transition duration-700 group-hover:scale-105" />
+            <div class="absolute inset-x-5 bottom-5 p-4 rounded-2xl ios-glass">
+              <div class="flex items-center justify-between mb-1">
+                <p class="text-[10px] uppercase tracking-widest text-orange-400 font-bold">Identidade Sonora</p>
+                <span class="text-[10px] text-stone-400">Curitiba & Região</span>
+              </div>
+              <p class="text-sm font-medium text-white">Equilíbrio entre presença musical, elegância e conversação.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TICKER PROVA SOCIAL -->
+    <section class="border-y border-white/5 bg-white/[0.012] py-4 overflow-hidden relative backdrop-blur-sm">
+      <div class="max-w-6xl mx-auto px-5 mb-2.5 flex items-center justify-between">
+        <span class="text-[10px] font-bold uppercase tracking-[0.22em] text-orange-400/90 flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+          Residências & Passagens por Espaços e Labels de Destaque
+        </span>
+        <span class="text-[10px] uppercase tracking-wider text-stone-500 hidden sm:inline">Bagagem Artística de Pista Real</span>
+      </div>
+      
+      <div class="relative w-full overflow-hidden flex items-center">
+        <div class="absolute left-0 inset-y-0 w-24 bg-gradient-to-r from-[#09090b] to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 inset-y-0 w-24 bg-gradient-to-l from-[#09090b] to-transparent z-10 pointer-events-none"></div>
+        
+        <div class="animate-marquee-slow whitespace-nowrap text-stone-400 font-light text-xs sm:text-sm flex gap-10 py-1">
+          <span class="text-stone-200 font-medium">Mercadoteca Crystal (Residente)</span>
+          <span class="text-stone-700">·</span>
+          <span>Phunk Soundroom (Residente)</span>
+          <span class="text-stone-700">·</span>
+          <span class="text-stone-200 font-medium">Club Vibe</span>
+          <span class="text-stone-700">·</span>
+          <span>Hera Bar</span>
+          <span class="text-stone-700">·</span>
+          <span>Supafine</span>
+          <span class="text-stone-700">·</span>
+          <span class="text-stone-200 font-medium">Festa do Tite</span>
+          <span class="text-stone-700">·</span>
+          <span>Coletivo Vênus</span>
+          <span class="text-stone-700">·</span>
+          <span class="text-stone-200 font-medium">Soma Galeria</span>
+          <span class="text-stone-700">·</span>
+          <!-- Loop Duplicado -->
+          <span class="text-stone-200 font-medium">Mercadoteca Crystal (Residente)</span>
+          <span class="text-stone-700">·</span>
+          <span>Phunk Soundroom (Residente)</span>
+          <span class="text-stone-700">·</span>
+          <span class="text-stone-200 font-medium">Club Vibe</span>
+          <span class="text-stone-700">·</span>
+          <span>Hera Bar</span>
+          <span class="text-stone-700">·</span>
+          <span>Supafine</span>
+          <span class="text-stone-700">·</span>
+          <span class="text-stone-200 font-medium">Festa do Tite</span>
+          <span class="text-stone-700">·</span>
+          <span>Coletivo Vênus</span>
+          <span class="text-stone-700">·</span>
+          <span class="text-stone-200 font-medium">Soma Galeria</span>
+          <span class="text-stone-700">·</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO B2B: SOLUÇÕES POR TIPO DE ESPAÇO COM ÍCONES LINEARES SVG -->
+    <section id="solucoes" class="max-w-6xl mx-auto px-5 py-16">
+      <div class="reveal text-center max-w-2xl mx-auto mb-12">
+        <span class="text-orange-400 text-xs uppercase tracking-widest font-bold">Arquitetura Acústica & Posicionamento</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-medium text-white mt-2">Como o Music Design funciona em cada ambiente</h2>
+        <p class="text-stone-400 text-sm mt-3 font-light leading-relaxed">
+          O som nunca deve disputar a atenção do seu cliente. Ele constrói o cenário invisível que incentiva a permanência, o bem-estar e a percepção de qualidade do seu espaço.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        
+        <!-- Nicho 1: Lojas de Decoração, Moda & Design -->
+        <div class="ios-glass-card rounded-[28px] p-6 flex flex-col justify-between reveal">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-orange-400 mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 19h16M6 19v-6a3 3 0 013-3h6a3 3 0 013 3v6M9 10V5a2 2 0 012-2h2a2 2 0 012 2v5" />
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-orange-400">Moda & Arquitetura</span>
+            <h3 class="text-lg font-bold text-white mt-1 mb-2.5">Lojas de Decoração, Moda & Design</h3>
+            <p class="text-xs text-stone-300 leading-relaxed font-light">
+              Trilha pensada para valorizar a circulação e aumentar o tempo de permanência do cliente na loja. Respeita conversas entre consultores e clientes, harmonizando com o projeto de interiores.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 text-[11px] text-stone-400 flex items-center gap-1.5 font-medium">
+            <span class="text-orange-400">✓</span> Aumento de permanência & Valor percebido
+          </div>
+        </div>
+
+        <!-- Nicho 2: Academias Boutique & Studios Wellness -->
+        <div class="ios-glass-card rounded-[28px] p-6 flex flex-col justify-between reveal">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-orange-400 mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m14.364-6.364l-1.414 1.414M8.05 15.95l-1.414 1.414m11.314 0l-1.414-1.414M8.05 8.05L6.636 6.636" />
+                <circle cx="12" cy="12" r="3" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-orange-400">Wellness & Movimento</span>
+            <h3 class="text-lg font-bold text-white mt-1 mb-2.5">Academias Boutique & Studios Wellness</h3>
+            <p class="text-xs text-stone-300 leading-relaxed font-light">
+              Ritmo contínuo e energia fluida no compasso certo para treinos, ativações e encontros de comunidade. Batidas estimulantes e elegantes, sem estridência ou ruídos que causem fadiga auditiva.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 text-[11px] text-stone-400 flex items-center gap-1.5 font-medium">
+            <span class="text-orange-400">✓</span> Vigor rítmico & Conforto acústico
+          </div>
+        </div>
+
+        <!-- Nicho 3: Workshops, Psicologia & Encontros -->
+        <div class="ios-glass-card rounded-[28px] p-6 flex flex-col justify-between reveal">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-orange-400 mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-orange-400">Encontros & Imersões</span>
+            <h3 class="text-lg font-bold text-white mt-1 mb-2.5">Workshops, Psicologia & Empoderamento</h3>
+            <p class="text-xs text-stone-300 leading-relaxed font-light">
+              Músicas que criam presença, segurança e acolhimento para momentos de escuta e dinâmicas de grupo. Trilha que amplifica a conexão emocional e transforma o encontro em uma experiência marcante.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 text-[11px] text-stone-400 flex items-center gap-1.5 font-medium">
+            <span class="text-orange-400">✓</span> Acolhimento, Conexão & Presença
+          </div>
+        </div>
+
+        <!-- Nicho 4: Rooftops, Hotéis & Gastronomia -->
+        <div class="ios-glass-card rounded-[28px] p-6 flex flex-col justify-between reveal">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-orange-400 mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 18h18M5 14h14M8 10h8M12 4v2m-5.657 1.343l1.414 1.414m8.486 0l1.414-1.414" />
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-orange-400">Hospitalidade & Sunset</span>
+            <h3 class="text-lg font-bold text-white mt-1 mb-2.5">Rooftops, Hotéis & Gastronomia</h3>
+            <p class="text-xs text-stone-300 leading-relaxed font-light">
+              Acompanhamento orgânico e dinâmico da luz solar: transição natural do golden hour para a sofisticação da noite. Cria a atmosfera ideal para brindar sem competir com as conversas à mesa.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 text-[11px] text-stone-400 flex items-center gap-1.5 font-medium">
+            <span class="text-orange-400">✓</span> Transição fluida de energia (Day to Night)
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO GÊNEROS TRABALHADOS -->
+    <section id="generos" class="max-w-6xl mx-auto px-5 py-12">
+      <div class="ios-glass rounded-[32px] p-6 sm:p-10 border border-white/10">
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-5 space-y-4">
+            <span class="text-xs font-bold uppercase tracking-widest text-orange-400">Identidade Sonora</span>
+            <h2 class="text-3xl font-serif text-white">Gêneros refinados com vocais atemporais</h2>
+            <p class="text-stone-300 text-xs sm:text-sm font-light leading-relaxed">
+              A curadoria da Flória une texturas da música eletrônica contemporânea à elegância de vocais e referências atemporais conhecidas pelo público. Nada é aleatório: o repertório é moldado à energia do local.
+            </p>
+            <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/5 text-xs text-stone-400">
+              <strong class="text-white">Cuidado Acústico:</strong> O volume é nivelado para permitir conversa clara sem perder o calor das frequências graves.
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 grid sm:grid-cols-3 gap-3.5">
+            
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-orange-500/40 transition">
+              <p class="text-orange-400 font-serif text-lg font-bold">Deep House</p>
+              <p class="text-[11px] font-semibold text-white mt-1">Elegância e Textura</p>
+              <p class="text-[11px] text-stone-300 mt-2 font-light leading-relaxed">Linhas de baixo aveludadas e vocais sofisticados. Ideal para coquetéis, galerias e lounges de recepção.</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-orange-500/40 transition">
+              <p class="text-orange-400 font-serif text-lg font-bold">Minimal & Groove</p>
+              <p class="text-[11px] font-semibold text-white mt-1">Fluidez Contínua</p>
+              <p class="text-[11px] text-stone-300 mt-2 font-light leading-relaxed">Percussão limpa e balanço constante que mantêm o ambiente vivo e convidativo ao movimento contínuo.</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-orange-500/40 transition">
+              <p class="text-orange-400 font-serif text-lg font-bold">Melodic Techno</p>
+              <p class="text-[11px] font-semibold text-white mt-1">Imersão & Clímax</p>
+              <p class="text-[11px] text-stone-300 mt-2 font-light leading-relaxed">Melodias envolventes e atmosferas etéreas para ativações ao pôr do sol e eventos que evoluem para a noite.</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BENTO SHOWCASE: VÍDEOS COM CONTROLE DE ÁUDIO E REINÍCIO AO SCROLL -->
+    <section id="showcase" class="max-w-6xl mx-auto px-5 py-12">
+      <div class="reveal text-center max-w-2xl mx-auto mb-10">
+        <span class="text-orange-400 text-xs uppercase tracking-widest font-bold">Captação & Performance</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-medium text-white mt-2">A experiência ao vivo</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+        
+        <!-- Video 1: Soma Galeria / Sunset (Com botão de áudio e replay) -->
+        <div class="md:col-span-7 ios-glass-card rounded-[30px] p-4 flex flex-col justify-between overflow-hidden">
+          <div class="video-viewport aspect-[16/10]">
+            <video 
+              id="video1"
+              data-scroll-video
+              class="w-full h-full object-cover" 
+              autoplay
+              muted 
+              loop 
+              playsinline 
+              webkit-playsinline 
+              preload="auto"
+              poster="https://res.cloudinary.com/pai48o4n/video/upload/so_2/Soma_galeria.jpg">
+              <source src="https://res.cloudinary.com/pai48o4n/video/upload/v1790432852/Soma_galeria.mp4" type="video/mp4" />
+            </video>
+            
+            <div class="pointer-events-none absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[9px] font-bold uppercase tracking-wider text-orange-400">
+              Live Capture
+            </div>
+
+            <!-- Botão de Ativar Som -->
+            <button type="button" class="video-audio-toggle absolute bottom-3 right-3 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full ios-glass border border-white/15 text-xs font-medium text-white hover:border-orange-500/50 transition cursor-pointer">
+              <span class="sound-icon">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75L21.75 14.25m0-4.5l-4.5 4.5M10.5 4.5L5.25 8.25H2.25v7.5h3l5.25 3.75V4.5z"/></svg>
+              </span>
+              <span class="sound-text text-[11px]">Ativar som</span>
+            </button>
+          </div>
+
+          <div class="pt-4 px-2">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-orange-400">Vernissage & Sunset</span>
+              <span class="text-xs text-stone-400">Soma Galeria · Curitiba</span>
+            </div>
+            <p class="text-sm text-stone-200 mt-1 font-light">Integração com a arte e o público — sonorização cristalina e sem poluição visual no espaço.</p>
+          </div>
+        </div>
+
+        <!-- Video 2: Lounge & Conforto (Vertical com botão de áudio e replay) -->
+        <div class="md:col-span-5 ios-glass-card rounded-[30px] p-4 flex flex-col justify-between overflow-hidden">
+          <div class="video-viewport aspect-[9/12] max-h-[340px]">
+            <video 
+              id="video2"
+              data-scroll-video
+              class="w-full h-full object-cover object-center" 
+              autoplay
+              muted 
+              loop 
+              playsinline 
+              webkit-playsinline 
+              preload="auto"
+              poster="https://res.cloudinary.com/pai48o4n/video/upload/so_2/Felling_good.jpg">
+              <source src="https://res.cloudinary.com/pai48o4n/video/upload/v1790432928/Felling_good.mp4" type="video/mp4" />
+            </video>
+
+            <div class="pointer-events-none absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[9px] font-bold uppercase tracking-wider text-stone-300">
+              Lounge Atmosphere
+            </div>
+
+            <!-- Botão de Ativar Som -->
+            <button type="button" class="video-audio-toggle absolute bottom-3 right-3 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full ios-glass border border-white/15 text-xs font-medium text-white hover:border-orange-500/50 transition cursor-pointer">
+              <span class="sound-icon">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75L21.75 14.25m0-4.5l-4.5 4.5M10.5 4.5L5.25 8.25H2.25v7.5h3l5.25 3.75V4.5z"/></svg>
+              </span>
+              <span class="sound-text text-[11px]">Ativar som</span>
+            </button>
+          </div>
+
+          <div class="pt-4 px-2">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-orange-400">Brunch, Rooftop & Ativação</span>
+            <p class="text-sm text-stone-200 mt-1 font-light">Conforto auditivo total para estimular networking e circulação natural de convidados.</p>
+          </div>
+        </div>
+
+        <!-- Sets Oficiais SoundCloud / YouTube -->
+        <div class="md:col-span-6 ios-glass-card rounded-[28px] p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-orange-400 mb-4">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white">Escute as Gravações Oficiais</h3>
+            <p class="text-xs text-stone-300 mt-1 leading-relaxed font-light">Sets gravados que demonstram a evolução harmônica entre acolhimento e energia de pista.</p>
+          </div>
+          <div class="grid grid-cols-2 gap-3 mt-6">
+            <a href="https://on.soundcloud.com/eGiURAnsH6b6lg6sBx" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition text-xs font-semibold">
+              SoundCloud ↗
+            </a>
+            <a href="https://www.youtube.com/@DJFloria" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition text-xs font-semibold">
+              YouTube ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Depoimentos Reais dos Contratantes -->
+        <div class="md:col-span-6 ios-glass-card rounded-[28px] p-6 flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-orange-400">Repercussão Pós-Evento</span>
+            <div class="flex gap-1 text-orange-400 text-xs">★★★★★</div>
+          </div>
+          <blockquote class="text-stone-200 text-sm italic leading-relaxed font-light">
+            “Todos amaram... foi o ponto alto da festa e todo mundo pedindo o seu contato no dia seguinte. Curadoria finíssima e postura nota dez!”
+          </blockquote>
+          <div class="mt-6 flex items-center gap-3 border-t border-white/10 pt-4">
+            <div class="w-8 h-8 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-orange-400 text-xs font-bold">
+              ✓
+            </div>
+            <div>
+              <p class="text-xs font-bold text-white">Eventos de Marcas e Celebrações Exclusivas</p>
+              <p class="text-[10px] text-stone-400">Curitiba & Região Metropolitana</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- QUEM É A ARTISTA: NATHALIA DIAS (COMPOSIÇÃO DUPLA EDITORIAL COM A NOVA FOTO) -->
+    <section id="sobre" class="max-w-6xl mx-auto px-5 py-12">
+      <div class="ios-glass rounded-[36px] p-6 sm:p-10 border border-white/10">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Composição Editorial das Fotos -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-[320px] pb-6 pr-6">
+              <!-- Foto Principal (Retrato de Estúdio) -->
+              <div class="relative rounded-[26px] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] bg-stone-900">
+                <img src="https://i.imgur.com/9tubDoR.jpg" alt="Nathalia Dias - Sound Curator Flória" class="w-full h-full object-cover object-center" />
+              </div>
+              
+              <!-- Nova Foto Inserida: Live / Atmosfera Sobreposta -->
+              <div class="absolute -bottom-2 -right-2 w-[56%] aspect-[4/5] rounded-[22px] overflow-hidden border-4 border-[#09090b] shadow-2xl ios-glass group">
+                <img src="https://res.cloudinary.com/pai48o4n/image/upload/v1790728467/93dacbc0-ae52-4337-9c85-5d2ee439d769.jpg" alt="Nathalia Dias em performance" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105" />
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 space-y-4">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-orange-400">A mente por trás da Flória</span>
+            </div>
+            
+            <h2 class="text-3xl sm:text-4xl font-serif text-white">Nathalia Dias</h2>
+            
+            <p class="text-stone-300 text-sm sm:text-base font-light leading-relaxed">
+              Formada pela conceituada <strong>Yellow DJ Academy</strong> e lapidada através da mentoria direta de <strong>Kaká Franco</strong>, Nathalia Dias construiu uma identidade pautada no rigor técnico e na leitura atenta de cada ambiente.
+            </p>
+            
+            <p class="text-stone-400 text-xs sm:text-sm leading-relaxed">
+              Com histórico como DJ residente da <strong>Mercadoteca (Shopping Crystal)</strong> e do <strong>Phunk Soundroom</strong>, além de apresentações no lendário <strong>Club Vibe, Hera Bar, Festa do Tite</strong> e atuações com o <strong>Coletivo Vênus</strong>, ela leva para ativações de marcas e eventos a mesma sensibilidade e presença das pistas mais conceituadas.
+            </p>
+
+            <!-- Badges de Autoridade -->
+            <div class="flex flex-wrap gap-2.5 pt-3">
+              <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-stone-300">Residência Mercadoteca</span>
+              <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-stone-300">Residência Phunk Soundroom</span>
+              <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-stone-300">Club Vibe</span>
+              <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-stone-300">Festa do Tite</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULÁRIO BRIEFING COM ÍCONES LINEARES SVG -->
+    <section id="briefing" class="max-w-4xl mx-auto px-5 py-14">
+      <div class="ios-glass rounded-[36px] p-6 sm:p-12 relative overflow-hidden">
+        
+        <div class="text-center max-w-lg mx-auto mb-8">
+          <span class="text-orange-400 text-xs uppercase tracking-widest font-bold">Briefing Estratégico</span>
+          <h2 class="text-3xl sm:text-4xl font-serif text-white mt-1">Consulte a agenda da Flória</h2>
+          <p class="text-stone-400 text-xs mt-2 font-light">Envie os dados do seu evento ou ativação para receber proposta técnica sob medida via WhatsApp.</p>
+        </div>
+
+        <form id="briefingForm" class="space-y-6">
+          
+          <!-- Nome & Localização -->
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-bold mb-2">Seu Nome / Marca</label>
+              <input type="text" id="name" required placeholder="Ex.: Carolina (Studio Arch)" class="ios-input w-full px-4 py-3.5 rounded-2xl text-sm" />
+            </div>
+            <div>
+              <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-bold mb-2">Local do Espaço / Cidade</label>
+              <select id="location" required class="ios-input w-full px-4 py-3.5 rounded-2xl text-sm">
+                <option value="">Selecione a região</option>
+                <option>Curitiba - Batel / Cabral / Ecoville</option>
+                <option>Curitiba - Demais bairros</option>
+                <option>São José dos Pinhais</option>
+                <option>Região Metropolitana (RMC)</option>
+                <option>Litoral / Outra região</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Data e Horário -->
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-bold mb-2">Data Prevista</label>
+              <input type="date" id="date" class="ios-input w-full px-4 py-3.5 rounded-2xl text-sm" />
+            </div>
+            <div>
+              <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-bold mb-2">Horário Início</label>
+              <input type="time" id="startTime" class="ios-input w-full px-4 py-3.5 rounded-2xl text-sm" />
+            </div>
+            <div>
+              <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-bold mb-2">Horário Término</label>
+              <input type="time" id="endTime" class="ios-input w-full px-4 py-3.5 rounded-2xl text-sm" />
+            </div>
+          </div>
+
+          <!-- PILLS B2B COM ÍCONES LINEARES SVG -->
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-bold mb-2.5">
+              Tipo de Experiência / Espaço (Selecione um)
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5" id="occasionGroup">
+              
+              <!-- 1. Inauguração / Lançamento de Marca (DEFAULT) -->
+              <label class="cursor-pointer border border-white/10 rounded-2xl p-3.5 text-left text-xs transition duration-200 hover:border-orange-500/50 has-[:checked]:bg-orange-500 has-[:checked]:text-white has-[:checked]:border-orange-500 flex items-center gap-3">
+                <input type="radio" name="event" value="Inauguração / Lançamento de Marca" class="hidden" required checked />
+                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
+                <span class="font-medium">Inauguração / Lançamento</span>
+              </label>
+
+              <!-- 2. Wellness & Studios -->
+              <label class="cursor-pointer border border-white/10 rounded-2xl p-3.5 text-left text-xs transition duration-200 hover:border-orange-500/50 has-[:checked]:bg-orange-500 has-[:checked]:text-white has-[:checked]:border-orange-500 flex items-center gap-3">
+                <input type="radio" name="event" value="Wellness, Studio & Academia Boutique" class="hidden" />
+                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3" /></svg>
+                <span class="font-medium">Wellness & Studio Boutique</span>
+              </label>
+
+              <!-- 3. Corporativo -->
+              <label class="cursor-pointer border border-white/10 rounded-2xl p-3.5 text-left text-xs transition duration-200 hover:border-orange-500/50 has-[:checked]:bg-orange-500 has-[:checked]:text-white has-[:checked]:border-orange-500 flex items-center gap-3">
+                <input type="radio" name="event" value="Evento Corporativo & Experiência de Cliente" class="hidden" />
+                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                <span class="font-medium">Corporativo & Experiência</span>
+              </label>
+
+              <!-- 4. Galeria de Arte -->
+              <label class="cursor-pointer border border-white/10 rounded-2xl p-3.5 text-left text-xs transition duration-200 hover:border-orange-500/50 has-[:checked]:bg-orange-500 has-[:checked]:text-white has-[:checked]:border-orange-500 flex items-center gap-3">
+                <input type="radio" name="event" value="Galeria de Arte & Vernissage" class="hidden" />
+                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke-linecap="round" stroke-linejoin="round" /><path stroke-linecap="round" stroke-linejoin="round" d="M3 15l5-5 4 4 5-5 4 4" /></svg>
+                <span class="font-medium">Galeria de Arte & Vernissage</span>
+              </label>
+
+              <!-- 5. Sunset & Rooftop -->
+              <label class="cursor-pointer border border-white/10 rounded-2xl p-3.5 text-left text-xs transition duration-200 hover:border-orange-500/50 has-[:checked]:bg-orange-500 has-[:checked]:text-white has-[:checked]:border-orange-500 flex items-center gap-3">
+                <input type="radio" name="event" value="Sunset, Rooftop & Gastronomia" class="hidden" />
+                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 18h18M5 14h14M8 10h8M12 4v2" /></svg>
+                <span class="font-medium">Sunset, Rooftop & Gastronomia</span>
+              </label>
+
+              <!-- 6. Outro Formato / Workshop -->
+              <label class="cursor-pointer border border-white/10 rounded-2xl p-3.5 text-left text-xs transition duration-200 hover:border-orange-500/50 has-[:checked]:bg-orange-500 has-[:checked]:text-white has-[:checked]:border-orange-500 flex items-center gap-3">
+                <input type="radio" name="event" value="Outro Formato / Workshop" class="hidden" />
+                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.286L13 21l-2.286-6.857L5 12l5.714-2.286L13 3z" /></svg>
+                <span class="font-medium">Outro Formato / Workshop</span>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- Fluxo de Convidados & Duração -->
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-bold mb-2">Fluxo Estimado de Pessoas</label>
+              <select id="guests" required class="ios-input w-full px-4 py-3.5 rounded-2xl text-sm">
+                <option value="">Selecione o fluxo</option>
+                <option>Até 50 pessoas (intimista)</option>
+                <option>50 a 100 pessoas</option>
+                <option>100 a 150 pessoas (atendido com setup próprio)</option>
+                <option>Acima de 150 pessoas (alinhamento de rider)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-bold mb-2">Duração Prevista</label>
+              <select id="duration" class="ios-input w-full px-4 py-3.5 rounded-2xl text-sm">
+                <option>Até 2 horas</option>
+                <option>3 a 4 horas (formato padrão para ativações)</option>
+                <option>Mais de 4 horas</option>
+                <option>Formato contínuo / a combinar</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Observações Específicas -->
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-bold mb-2">Particularidades do Espaço / Expectativa Musical</label>
+            <textarea id="details" rows="2" placeholder="Conte detalhes sobre a identidade da sua marca, acústica do espaço ou referências estéticas..." class="ios-input w-full px-4 py-3 rounded-2xl text-sm resize-none"></textarea>
+          </div>
+
+          <!-- Botão de Envio WhatsApp (Aviso secundário removido) -->
+          <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white font-bold text-xs uppercase tracking-widest transition duration-300 shadow-xl shadow-orange-500/25 flex items-center justify-center gap-2">
+            <span>Encaminhar Briefing para o WhatsApp</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ÁREA DO PRODUTOR / PRESS KIT CTA (TEXTO ATUALIZADO) -->
+  <section id="presskit" class="border-t border-white/5 bg-white/[0.01] py-8 px-5">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 p-6 rounded-3xl ios-glass">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-orange-400 text-xl font-bold">
+          PDF
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-wider text-orange-400 font-bold">Área do Produtor & Curadoria</p>
+          <h4 class="text-white font-serif text-lg">Press Kit Artístico & Especificações Técnicas</h4>
+          <p class="text-xs text-stone-400">Fotos em alta resolução, bio completa e histórico de apresentações.</p>
+        </div>
+      </div>
+      <a href="https://wa.me/5541920034522?text=Ol%C3%A1%2C%20Nathalia!%20Gostaria%20de%20solicitar%20o%20Press%20Kit%20Art%C3%ADstico%20em%20PDF%20da%20Fl%C3%B3ria." target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-full bg-white/10 hover:bg-orange-500 text-white text-xs font-bold uppercase tracking-wider transition duration-300 whitespace-nowrap">
+        Solicitar Press Kit (PDF) ↗
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER MINIMALISTA -->
+  <footer class="border-t border-white/5 py-12 px-5 text-stone-400 text-xs">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <div>
+        <p class="font-serif tracking-widest text-white text-base font-semibold">FLÓRIA · Sound Curation</p>
+        <p class="text-[11px] text-stone-400 mt-1">Design sonoro e atmosfera para marcas & encontros com propósito.</p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-medium">
+        <a href="#solucoes" class="hover:text-white transition">Ambientes</a>
+        <a href="#generos" class="hover:text-white transition">Gêneros</a>
+        <a href="https://instagram.com/djfloria" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Instagram @djfloria</a>
+        <a href="https://on.soundcloud.com/eGiURAnsH6b6lg6sBx" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">SoundCloud</a>
+        <a href="https://wa.me/5541920034522?text=Ol%C3%A1%2C%20Nathalia!%20Gostaria%20do%20Press%20Kit%20em%20PDF." target="_blank" rel="noopener noreferrer" class="text-orange-400 hover:text-orange-300 font-semibold transition">
+          Baixar Press Kit (PDF)
+        </a>
+      </div>
+
+      <div class="text-center md:text-right">
+        <p class="text-[11px] text-stone-300 font-semibold">WhatsApp: (41) 92003-4522</p>
+        <p class="text-[10px] text-stone-400 mt-0.5">© 2026 Flória Performance Art · Curitiba e RMC</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- MOTOR JAVASCRIPT: CONTROLE DE ÁUDIO, REINÍCIO AO SCROLL & WHATSAPP -->
+  <script>
+    // 1. Reveal On Scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // 2. Autoplay Inteligente ao rolar a página com reinício do começo (currentTime = 0)
+    const scrollVideos = document.querySelectorAll('video[data-scroll-video]');
+    
+    scrollVideos.forEach(v => {
+      v.muted = true;
+      v.defaultMuted = true;
+      v.setAttribute('muted', '');
+      v.setAttribute('playsinline', '');
+      v.setAttribute('webkit-playsinline', '');
+      v.hasLeftView = false;
+    });
+
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
+          if (video.hasLeftView) {
+            try { video.currentTime = 0; } catch(_) {}
+            video.hasLeftView = false;
+          }
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {
+              setTimeout(() => {
+                video.play().catch(() => {});
+              }, 250);
+            });
+          }
+        } else if (!entry.isIntersecting || entry.intersectionRatio < 0.1) {
+          if (!video.paused) {
+            video.pause();
+          }
+          video.hasLeftView = true;
+        }
+      });
+    }, { threshold: [0, 0.1, 0.25, 0.6] });
+
+    scrollVideos.forEach(v => videoObserver.observe(v));
+
+    // 3. Controle Interativo de Som (Ligar/Desligar Áudio)
+    function updateAudioButton(btn, isMuted) {
+      const textSpan = btn.querySelector('.sound-text');
+      const iconSpan = btn.querySelector('.sound-icon');
+      if (isMuted) {
+        textSpan.textContent = 'Ativar som';
+        btn.classList.remove('bg-orange-500/20', 'border-orange-500/60', 'text-orange-400');
+        iconSpan.innerHTML = `<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75L21.75 14.25m0-4.5l-4.5 4.5M10.5 4.5L5.25 8.25H2.25v7.5h3l5.25 3.75V4.5z"/></svg>`;
+      } else {
+        textSpan.textContent = 'Som ativado';
+        btn.classList.add('bg-orange-500/20', 'border-orange-500/60', 'text-orange-400');
+        iconSpan.innerHTML = `<svg class="w-3.5 h-3.5 animate-pulse" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M10.5 4.5L5.25 8.25H2.25v7.5h3l5.25 3.75V4.5z"/></svg>`;
+      }
+    }
+
+    document.querySelectorAll('.video-audio-toggle').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const container = btn.closest('.video-viewport');
+        const currentVideo = container.querySelector('video');
+        if (!currentVideo) return;
+
+        if (currentVideo.muted) {
+          scrollVideos.forEach(v => {
+            if (v !== currentVideo) {
+              v.muted = true;
+              const otherBtn = v.closest('.video-viewport')?.querySelector('.video-audio-toggle');
+              if (otherBtn) updateAudioButton(otherBtn, true);
+            }
+          });
+          currentVideo.muted = false;
+          updateAudioButton(btn, false);
+        } else {
+          currentVideo.muted = true;
+          updateAudioButton(btn, true);
+        }
+      });
+    });
+
+    // 4. Form Briefing B2B -> WhatsApp formatado
+    document.getElementById('briefingForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value.trim();
+      const location = document.getElementById('location').value;
+      const date = document.getElementById('date').value;
+      const startTime = document.getElementById('startTime').value || 'A definir';
+      const endTime = document.getElementById('endTime').value || 'A definir';
+      const occasion = document.querySelector('input[name="event"]:checked')?.value || 'Inauguração / Lançamento de Marca';
+      const guests = document.getElementById('guests').value;
+      const duration = document.getElementById('duration').value;
+      const details = document.getElementById('details').value.trim() || 'Nenhuma observação extra informada.';
+      
+      const formattedDate = date ? date.split('-').reverse().join('/') : 'A definir';
+
+      const msg = `Olá, Nathalia! Meu nome/marca é *${name}*.\n\n` +
+                  `Gostaria de consultar uma proposta de Music Design & Curadoria com a *Flória*:\n\n` +
+                  `✨ *Formato/Espaço:* ${occasion}\n` +
+                  `📍 *Localidade:* ${location}\n` +
+                  `📅 *Data Prevista:* ${formattedDate}\n` +
+                  `⏰ *Horário:* ${startTime} às ${endTime} (${duration})\n` +
+                  `👥 *Fluxo Estimado:* ${guests}\n` +
+                  `📝 *Detalhes/Identidade:* ${details}\n\n` +
+                  `Gostaria de verificar a disponibilidade de agenda e orientações técnicas.`;
+
+      window.open(`https://wa.me/5541920034522?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+  </script>
+</body>
+</html>
