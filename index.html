@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#09090b" />
-  <meta name="description" content="Flória por Nathalia Dias — Music Design, Curadoria Sonora e DJ para Eventos Corporativos, Marcas de Luxo, Studios Wellness e Celebrações Exclusivas em Curitiba e região." />
+  <meta name="description" content="Curadoria musical estratégica e DJ para eventos corporativos, inaugurações, vernissages, studios wellness e celebrações em Curitiba, RMC e outras localidades sob consulta." />
   <title>Flória — Music Design & Sound Curation | Nathalia Dias</title>
   
   <!-- Tailwind CSS & Google Fonts -->
@@ -114,6 +114,16 @@
       border-radius: 20px;
       background-color: #000;
     }
+
+    /* Acessibilidade: foco visível e redução de movimento */
+    :focus-visible { outline: 3px solid #f97316; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+    }
+    .faq-item summary { list-style: none; cursor: pointer; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; color: #fb923c; font-size: 1.25rem; line-height: 1; }
+    .faq-item[open] summary::after { content: '−'; }
   </style>
 </head>
 <body class="bg-[#09090b] text-stone-100 antialiased selection:bg-orange-500 selection:text-white">
@@ -132,13 +142,14 @@
         <a href="#solucoes" class="hover:text-white transition">Ambientes</a>
         <a href="#generos" class="hover:text-white transition">Identidade</a>
         <a href="#showcase" class="hover:text-white transition">Performance</a>
+        <a href="#faq" class="hover:text-white transition">FAQ</a>
         <a href="#sobre" class="hover:text-white transition">A Artista</a>
       </div>
 
-      <!-- Botão CTA Lateral -->
+      <!-- Botão CTA Lateral Sempre Alinhado -->
       <div class="shrink-0 whitespace-nowrap flex items-center">
         <a href="#briefing" class="text-[10px] sm:text-[11px] font-bold tracking-wide uppercase px-3.5 sm:px-4 py-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white shadow-md shadow-orange-500/20 transition whitespace-nowrap inline-flex items-center">
-          Consultar Data
+          Consultar disponibilidade
         </a>
       </div>
     </nav>
@@ -148,7 +159,7 @@
     <!-- Ambient Atmospheric Glow -->
     <div class="ambient-glow absolute -top-48 left-1/2 -translate-x-1/2 w-[900px] h-[900px] pointer-events-none"></div>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (HIERARQUIA B2B) -->
     <section class="max-w-6xl mx-auto px-5 pt-8 pb-12">
       <div class="grid lg:grid-cols-12 gap-10 items-center">
         
@@ -187,16 +198,16 @@
             </a>
           </div>
 
-          <!-- Métricas e Card Visual Hi-Fi -->
+          <!-- Métricas e Card Visual Hi-Fi da Torre de Som (Texto ajustado) -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 border-t border-white/10 max-w-xl">
             <div class="p-3 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col justify-center">
-              <p class="text-2xl font-serif font-bold text-white">50+</p>
-              <p class="text-[10px] uppercase tracking-wider text-stone-400 mt-0.5">Experiências Conduzidas</p>
+              <p class="text-base sm:text-lg font-serif font-bold text-white">Curadoria sob medida</p>
+              <p class="text-[10px] uppercase tracking-wider text-stone-400 mt-0.5">Som alinhado ao seu espaço</p>
             </div>
 
             <div class="p-3 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col justify-center">
-              <p class="text-2xl font-serif font-bold text-white">100%</p>
-              <p class="text-[10px] uppercase tracking-wider text-stone-400 mt-0.5">Pensado para o Contexto</p>
+              <p class="text-base sm:text-lg font-serif font-bold text-white">Briefing estratégico</p>
+              <p class="text-[10px] uppercase tracking-wider text-stone-400 mt-0.5">Direção musical personalizada</p>
             </div>
 
             <!-- Card Destaque Setup em Coluna -->
@@ -208,8 +219,8 @@
                 </svg>
               </div>
               <div>
-                <p class="text-[11px] font-bold text-stone-200 leading-tight">Setup em Coluna</p>
-                <p class="text-[9px] uppercase tracking-wider text-stone-400 mt-0.5">Acústica & Design Clean</p>
+                <p class="text-[11px] font-bold text-stone-200 leading-tight">Setup próprio em coluna</p>
+                <p class="text-[9px] uppercase tracking-wider text-stone-400 mt-0.5">Alta fidelidade & integração visual</p>
               </div>
             </div>
           </div>
@@ -219,7 +230,7 @@
         <!-- Card Visual da Artista -->
         <div class="lg:col-span-5 reveal">
           <div class="ios-glass-card rounded-[32px] p-2 relative overflow-hidden group">
-            <img src="https://i.imgur.com/ezJ02g8.jpeg" alt="Nathalia Dias - Flória DJ & Sound Curator" class="rounded-[26px] w-full h-[390px] sm:h-[470px] object-cover object-center transition duration-700 group-hover:scale-105" />
+            <img src="https://res.cloudinary.com/pai48o4n/image/upload/v1791396810/b28820ac-02f8-4fa2-9897-925ef921b146.jpg" alt="Nathalia Dias - Flória DJ & Sound Curator" class="rounded-[26px] w-full h-[390px] sm:h-[470px] object-cover object-center transition duration-700 group-hover:scale-105" />
             <div class="absolute inset-x-5 bottom-5 p-4 rounded-2xl ios-glass">
               <div class="flex items-center justify-between mb-1">
                 <p class="text-[10px] uppercase tracking-widest text-orange-400 font-bold">Identidade Sonora</p>
@@ -233,12 +244,12 @@
       </div>
     </section>
 
-    <!-- TICKER PROVA SOCIAL (ATUALIZADO COM APRESENTAÇÕES MENSAIS NO PHUNK) -->
+    <!-- TICKER PROVA SOCIAL -->
     <section class="border-y border-white/5 bg-white/[0.012] py-4 overflow-hidden relative backdrop-blur-sm">
       <div class="max-w-6xl mx-auto px-5 mb-2.5 flex items-center justify-between">
         <span class="text-[10px] font-bold uppercase tracking-[0.22em] text-orange-400/90 flex items-center gap-2">
           <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-          Residências & Passagens por Espaços e Labels de Destaque
+          Atuações & Passagens por Espaços e Projetos
         </span>
         <span class="text-[10px] uppercase tracking-wider text-stone-500 hidden sm:inline">Bagagem Artística de Pista Real</span>
       </div>
@@ -248,9 +259,9 @@
         <div class="absolute right-0 inset-y-0 w-24 bg-gradient-to-l from-[#09090b] to-transparent z-10 pointer-events-none"></div>
         
         <div class="animate-marquee-slow whitespace-nowrap text-stone-400 font-light text-xs sm:text-sm flex gap-10 py-1">
-          <span class="text-stone-200 font-medium">Mercadoteca Crystal (Residente)</span>
+          <span class="text-stone-200 font-medium">Mercadoteca Crystal</span>
           <span class="text-stone-700">·</span>
-          <span>Phunk Soundroom · Apresentações mensais</span>
+          <span>Phunk Soundroom · Long sets mensais</span>
           <span class="text-stone-700">·</span>
           <span class="text-stone-200 font-medium">Club Vibe</span>
           <span class="text-stone-700">·</span>
@@ -265,9 +276,9 @@
           <span class="text-stone-200 font-medium">Soma Galeria</span>
           <span class="text-stone-700">·</span>
           <!-- Loop Duplicado -->
-          <span class="text-stone-200 font-medium">Mercadoteca Crystal (Residente)</span>
+          <span class="text-stone-200 font-medium">Mercadoteca Crystal</span>
           <span class="text-stone-700">·</span>
-          <span>Phunk Soundroom · Apresentações mensais</span>
+          <span>Phunk Soundroom · Long sets mensais</span>
           <span class="text-stone-700">·</span>
           <span class="text-stone-200 font-medium">Club Vibe</span>
           <span class="text-stone-700">·</span>
@@ -377,46 +388,40 @@
       </div>
     </section>
 
-    <!-- SEÇÃO IDENTIDADE SONORA (REVISADA E APROFUNDADA) -->
+    <!-- SEÇÃO GÊNEROS TRABALHADOS -->
     <section id="generos" class="max-w-6xl mx-auto px-5 py-12">
       <div class="ios-glass rounded-[32px] p-6 sm:p-10 border border-white/10">
         <div class="grid lg:grid-cols-12 gap-8 items-center">
           
           <div class="lg:col-span-5 space-y-4">
             <span class="text-xs font-bold uppercase tracking-widest text-orange-400">Identidade Sonora</span>
-            <h2 class="text-3xl font-serif text-white">Groove, melodia e movimento com propósito</h2>
+            <h2 class="text-3xl font-serif text-white">Groove, melodia e atmosferas em movimento</h2>
             <p class="text-stone-300 text-xs sm:text-sm font-light leading-relaxed">
-              A pesquisa sonora da Flória transita entre <strong>House</strong>, <strong>Indie Dance</strong>, <strong>Melodic Techno</strong> e outras vertentes eletrônicas guiadas por groove, melodia e movimento.
+              A curadoria da Flória une groove, melodia, hipnose e movimento. A pesquisa transita por House, Indie Dance e Melodic Techno, com repertório moldado à energia, ao público e ao contexto de cada espaço.
             </p>
-            <p class="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
-              Uma curadoria atenta que resgata vocais conhecidos e referências atemporais em arranjos contemporâneos — gerando conexão instantânea com o público sem abrir mão da sofisticação e da estética da marca.
-            </p>
-            <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/5 text-xs text-stone-300">
-              <strong class="text-orange-400 font-semibold">Equalização em Tempo Real:</strong> Equilíbrio acústico contínuo para manter a vibração do ambiente sem exigir esforço de voz dos presentes.
+            <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/5 text-xs text-stone-400">
+              <strong class="text-white">Cuidado acústico:</strong> O volume e a seleção são alinhados para preservar conversas claras sem perder o calor das frequências graves.
             </div>
           </div>
 
           <div class="lg:col-span-7 grid sm:grid-cols-3 gap-3.5">
             
-            <!-- House & Deep House -->
             <div class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-orange-500/40 transition">
-              <p class="text-orange-400 font-serif text-lg font-bold">House</p>
-              <p class="text-[11px] font-semibold text-white mt-1">Groove & Vocais Atemporais</p>
-              <p class="text-[11px] text-stone-300 mt-2 font-light leading-relaxed">Linhas de baixo aveludadas, percussão calorosa e clássicos reinterpretados que acolhem o espaço com sofisticação natural.</p>
+              <p class="text-orange-400 font-serif text-lg font-bold">Deep House</p>
+              <p class="text-[11px] font-semibold text-white mt-1">Elegância e Textura</p>
+              <p class="text-[11px] text-stone-300 mt-2 font-light leading-relaxed">Linhas de baixo aveludadas e vocais sofisticados. Ideal para coquetéis, recepções e celebrações intimistas.</p>
             </div>
 
-            <!-- Indie Dance -->
             <div class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-orange-500/40 transition">
-              <p class="text-orange-400 font-serif text-lg font-bold">Indie Dance</p>
-              <p class="text-[11px] font-semibold text-white mt-1">Texturas & Vitalidade</p>
-              <p class="text-[11px] text-stone-300 mt-2 font-light leading-relaxed">Sintetizadores dinâmicos, balanço moderno e ritmo solar. Ideal para ativações de marcas, sunsets e transições de energia.</p>
+              <p class="text-orange-400 font-serif text-lg font-bold">Minimal & Groove</p>
+              <p class="text-[11px] font-semibold text-white mt-1">Fluidez Contínua</p>
+              <p class="text-[11px] text-stone-300 mt-2 font-light leading-relaxed">Percussão limpa e balanço constante que mantêm o ambiente vivo e convidativo ao movimento contínuo.</p>
             </div>
 
-            <!-- Melodic Techno -->
             <div class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-orange-500/40 transition">
               <p class="text-orange-400 font-serif text-lg font-bold">Melodic Techno</p>
-              <p class="text-[11px] font-semibold text-white mt-1">Imersão & Atmosfera</p>
-              <p class="text-[11px] text-stone-300 mt-2 font-light leading-relaxed">Construções melódicas envolventes e etéreas que criam magnetismo, profundidade e momentos de clímax na pista.</p>
+              <p class="text-[11px] font-semibold text-white mt-1">Imersão & Clímax</p>
+              <p class="text-[11px] text-stone-300 mt-2 font-light leading-relaxed">Melodias envolventes e atmosferas etéreas para ativações ao pôr do sol e eventos que evoluem para a noite.</p>
             </div>
 
           </div>
@@ -471,7 +476,7 @@
               <span class="text-xs text-stone-400">Soma Galeria · Curitiba</span>
             </div>
             <p class="text-sm text-stone-200 mt-1 font-light">
-              Vernissage & Sunset — Deep House, Indie Dance e curadoria orgânica.
+              Vernissage & Sunset — Deep House, Indie Dance e curadoria adaptada ao espaço.
             </p>
           </div>
         </div>
@@ -515,51 +520,72 @@
           </div>
         </div>
 
-        <!-- Sets Oficiais SoundCloud / YouTube -->
-        <div class="md:col-span-6 ios-glass-card rounded-[28px] p-6 flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-orange-400 mb-4">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-              </svg>
+        <!-- Vídeo complementar: Live Moment Cloudinary -->
+        <div class="md:col-span-6 ios-glass-card rounded-[28px] p-4 flex flex-col justify-between overflow-hidden">
+          <div class="video-viewport aspect-[16/10]">
+            <video
+              id="video3"
+              data-scroll-video
+              class="w-full h-full object-cover object-center"
+              autoplay
+              muted
+              loop
+              playsinline
+              webkit-playsinline
+              preload="metadata">
+              <source src="https://res.cloudinary.com/pai48o4n/video/upload/v1791395842/7_de_outubro_de_2026.mp4" type="video/mp4" />
+            </video>
+            <div class="pointer-events-none absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[9px] font-bold uppercase tracking-wider text-orange-400">
+              Live Moment
             </div>
-            <h3 class="text-lg font-bold text-white">Escute as Gravações Oficiais</h3>
-            <p class="text-xs text-stone-300 mt-1 leading-relaxed font-light">Sets gravados que demonstram a evolução harmônica entre acolhimento e energia de pista.</p>
+            <button type="button" class="video-audio-toggle absolute bottom-3 right-3 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full ios-glass border border-white/15 text-xs font-medium text-white hover:border-orange-500/50 transition cursor-pointer">
+              <span class="sound-icon">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75L21.75 14.25m0-4.5l-4.5 4.5M10.5 4.5L5.25 8.25H2.25v7.5h3l5.25 3.75V4.5z"/></svg>
+              </span>
+              <span class="sound-text text-[11px]">Ativar som</span>
+            </button>
           </div>
-          <div class="grid grid-cols-2 gap-3 mt-6">
-            <a href="https://on.soundcloud.com/eGiURAnsH6b6lg6sBx" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition text-xs font-semibold">
-              SoundCloud ↗
-            </a>
-            <a href="https://www.youtube.com/@DJFloria" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition text-xs font-semibold">
-              YouTube ↗
-            </a>
+          <div class="pt-4 px-2">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-orange-400">Performance & Atmosfera</span>
+              <span class="text-xs text-stone-400">Flória</span>
+            </div>
+            <p class="text-sm text-stone-200 mt-1 font-light">Um registro complementar da presença, da curadoria e da conexão da Flória com o ambiente.</p>
           </div>
         </div>
 
-        <!-- Depoimentos Reais dos Contratantes -->
+        <!-- Feedbacks reais recebidos pelo WhatsApp -->
         <div class="md:col-span-6 ios-glass-card rounded-[28px] p-6 flex flex-col justify-between">
-          <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-bold uppercase tracking-wider text-orange-400">Repercussão Pós-Evento</span>
-            <div class="flex gap-1 text-orange-400 text-xs">★★★★★</div>
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-xs font-bold uppercase tracking-wider text-orange-400">Feedbacks reais</span>
+            <span class="text-[10px] uppercase tracking-wider text-stone-500">Após eventos</span>
           </div>
-          <blockquote class="text-stone-200 text-sm italic leading-relaxed font-light">
-            “Todos amaram... foi o ponto alto da festa e todo mundo pedindo o seu contato no dia seguinte. Curadoria finíssima e postura nota dez!”
-          </blockquote>
-          <div class="mt-6 flex items-center gap-3 border-t border-white/10 pt-4">
-            <div class="w-8 h-8 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-orange-400 text-xs font-bold">
-              ✓
+          <div class="space-y-5">
+            <div>
+              <p class="text-[10px] uppercase tracking-wider text-stone-500 mb-2">Avaliação 1</p>
+              <div class="space-y-2 max-w-[92%]">
+                <p class="inline-block rounded-2xl rounded-tl-md bg-[#202024] border border-white/10 px-4 py-3 text-sm text-stone-100 leading-relaxed">Todos amaram vc, querida. Foi o ponto alto da festa e tá todo mundo pedindo o seu contato</p>
+                <p class="inline-block rounded-2xl rounded-tl-md bg-[#202024] border border-white/10 px-4 py-3 text-sm text-stone-100 leading-relaxed">Obrigada pelo seu trabalho</p>
+              </div>
             </div>
             <div>
-              <p class="text-xs font-bold text-white">Eventos de Marcas e Celebrações Exclusivas</p>
-              <p class="text-[10px] text-stone-400">Curitiba & Região Metropolitana</p>
+              <p class="text-[10px] uppercase tracking-wider text-stone-500 mb-2">Avaliação 2</p>
+              <div class="space-y-2 max-w-[92%]">
+                <p class="inline-block rounded-2xl rounded-tl-md bg-[#202024] border border-white/10 px-4 py-3 text-sm text-stone-100 leading-relaxed">Amaram muito</p>
+                <p class="inline-block rounded-2xl rounded-tl-md bg-[#202024] border border-white/10 px-4 py-3 text-sm text-stone-100 leading-relaxed">A primeira coisa que ela falou</p>
+                <p class="inline-block rounded-2xl rounded-tl-md bg-[#202024] border border-white/10 px-4 py-3 text-sm text-stone-100 leading-relaxed">A dj é o máximo</p>
+              </div>
             </div>
+          </div>
+          <div class="mt-6 border-t border-white/10 pt-4">
+            <p class="text-[10px] text-stone-400">Mensagens compartilhadas após experiências musicais da Flória.</p>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- QUEM É A ARTISTA: NATHALIA DIAS (ATUALIZADO COM PHUNK SOUNDROOM MENSAL) -->
+    <!-- QUEM É A ARTISTA: NATHALIA DIAS -->
     <section id="sobre" class="max-w-6xl mx-auto px-5 py-12">
       <div class="ios-glass rounded-[36px] p-6 sm:p-10 border border-white/10">
         <div class="grid lg:grid-cols-12 gap-10 items-center">
@@ -591,19 +617,58 @@
             </p>
             
             <p class="text-stone-400 text-xs sm:text-sm leading-relaxed">
-              Com histórico como DJ residente da <strong>Mercadoteca (Shopping Crystal)</strong> e apresentações mensais no <strong>Phunk Soundroom</strong>, além de passagens pelo lendário <strong>Club Vibe, Hera Bar, Festa do Tite</strong> e atuações com o <strong>Coletivo Vênus</strong>, ela leva para celebrações e ativações a mesma sensibilidade e presença das pistas mais conceituadas.
+              Com apresentações mensais em formato de long set no <strong>Phunk Soundroom</strong>, duas apresentações no <strong>Club Vibe</strong>, além de experiências no <strong>Hera Bar, Festa do Tite</strong> e atuações com o <strong>Coletivo Vênus</strong>, ela leva para celebrações e ativações a mesma sensibilidade e presença construída nas pistas.
             </p>
 
-            <!-- Badges de Autoridade -->
-            <div class="flex flex-wrap gap-2.5 pt-3">
-              <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-stone-300">Residência Mercadoteca</span>
-              <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-stone-300">Phunk Soundroom · Mensal</span>
-              <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-stone-300">Club Vibe</span>
-              <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-stone-300">Festa do Tite</span>
-            </div>
           </div>
 
         </div>
+      </div>
+    </section>
+
+
+    <!-- FAQ ANTI-OBJEÇÃO -->
+    <section id="faq" class="max-w-4xl mx-auto px-5 py-14">
+      <div class="reveal text-center max-w-2xl mx-auto mb-10">
+        <span class="text-orange-400 text-xs uppercase tracking-widest font-bold">Antes de consultar</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-medium text-white mt-2">Perguntas frequentes</h2>
+        <p class="text-stone-400 text-sm mt-3 font-light leading-relaxed">
+          As principais informações para você entender como a curadoria e a apresentação funcionam.
+        </p>
+      </div>
+      <div class="space-y-3">
+        <details class="faq-item ios-glass-card rounded-2xl p-5 reveal">
+          <summary class="flex items-center justify-between gap-6 text-sm font-semibold text-white">O que está incluso no setup próprio?</summary>
+          <p class="text-sm text-stone-300 leading-relaxed font-light mt-4">O setup próprio inclui sistema de sonorização em coluna de alta fidelidade para eventos de pequeno e médio porte, configuração integrada ao ambiente e fiação discreta. Pode atender aproximadamente até 150 pessoas, dependendo do espaço, da acústica, do formato do evento e do volume necessário. A configuração final é definida conforme cada ocasião.</p>
+        </details>
+        <details class="faq-item ios-glass-card rounded-2xl p-5 reveal">
+          <summary class="flex items-center justify-between gap-6 text-sm font-semibold text-white">Preciso fornecer algum equipamento?</summary>
+          <p class="text-sm text-stone-300 leading-relaxed font-light mt-4">Quando o setup próprio é contratado, o espaço precisa disponibilizar uma tomada próxima ao local da apresentação e um ponto seguro e adequado para conexão. Equipamentos adicionais, sonorização complementar, palco, iluminação ou estrutura especial são avaliados conforme o evento.</p>
+        </details>
+        <details class="faq-item ios-glass-card rounded-2xl p-5 reveal">
+          <summary class="flex items-center justify-between gap-6 text-sm font-semibold text-white">Podemos alinhar o briefing musical antes?</summary>
+          <p class="text-sm text-stone-300 leading-relaxed font-light mt-4">Sim. O alinhamento considera o perfil do espaço, a identidade da marca, o público, o momento do evento, a duração, o nível de energia desejado, referências e restrições. Pode acontecer por mensagem, formulário ou reunião, conforme a complexidade do evento.</p>
+        </details>
+        <details class="faq-item ios-glass-card rounded-2xl p-5 reveal">
+          <summary class="flex items-center justify-between gap-6 text-sm font-semibold text-white">A Flória atende fora de Curitiba e da RMC?</summary>
+          <p class="text-sm text-stone-300 leading-relaxed font-light mt-4">Sim, conforme disponibilidade de agenda e viabilidade logística. Para eventos fora de Curitiba e da Região Metropolitana, deslocamento, estacionamento, hospedagem ou outros itens necessários são calculados separadamente e apresentados na proposta.</p>
+        </details>
+        <details class="faq-item ios-glass-card rounded-2xl p-5 reveal">
+          <summary class="flex items-center justify-between gap-6 text-sm font-semibold text-white">A música pode ser personalizada para meu espaço ou evento?</summary>
+          <p class="text-sm text-stone-300 leading-relaxed font-light mt-4">Sim. A curadoria considera o ambiente, o público, a identidade da marca, o horário e o objetivo da experiência. A personalização constrói uma direção sonora coerente com o contexto, sem limitar a autonomia artística da apresentação.</p>
+        </details>
+        <details class="faq-item ios-glass-card rounded-2xl p-5 reveal">
+          <summary class="flex items-center justify-between gap-6 text-sm font-semibold text-white">Qual é a duração da apresentação?</summary>
+          <p class="text-sm text-stone-300 leading-relaxed font-light mt-4">A duração é definida conforme o formato do evento. Podem ser consideradas apresentações de até 2 horas, formatos de 3 a 4 horas, long sets ou formatos contínuos. O horário e eventuais horas adicionais são detalhados na proposta comercial.</p>
+        </details>
+        <details class="faq-item ios-glass-card rounded-2xl p-5 reveal">
+          <summary class="flex items-center justify-between gap-6 text-sm font-semibold text-white">A Flória atende eventos de wellness, psicologia e empoderamento?</summary>
+          <p class="text-sm text-stone-300 leading-relaxed font-light mt-4">Sim. A curadoria pode ser adaptada para eventos de bem-estar, movimento, psicologia, meditação, empoderamento de mulheres, workshops e encontros de comunidade, criando presença, acolhimento, conexão e energia adequada ao momento.</p>
+        </details>
+        <details class="faq-item ios-glass-card rounded-2xl p-5 reveal">
+          <summary class="flex items-center justify-between gap-6 text-sm font-semibold text-white">Como recebo uma proposta?</summary>
+          <p class="text-sm text-stone-300 leading-relaxed font-light mt-4">Após o envio do briefing, são avaliados data, local, formato, duração, quantidade de pessoas, necessidades de equipamento, deslocamento e características do espaço. Depois, é enviada uma proposta personalizada com valores e condições específicas.</p>
+        </details>
       </div>
     </section>
 
@@ -614,7 +679,7 @@
         <div class="text-center max-w-lg mx-auto mb-8">
           <span class="text-orange-400 text-xs uppercase tracking-widest font-bold">Briefing Estratégico</span>
           <h2 class="text-3xl sm:text-4xl font-serif text-white mt-1">Consulte a agenda da Flória</h2>
-          <p class="text-stone-400 text-xs mt-2 font-light">Envie os dados do seu evento ou celebração para receber proposta sob medida via WhatsApp.</p>
+          <p class="text-stone-400 text-xs mt-2 font-light">Envie os dados do seu evento ou espaço para verificar disponibilidade e receber uma proposta sob medida via WhatsApp.</p>
         </div>
 
         <form id="briefingForm" class="space-y-6">
@@ -634,6 +699,7 @@
                 <option>São José dos Pinhais</option>
                 <option>Região Metropolitana (RMC)</option>
                 <option>Litoral / Outra região</option>
+                <option>Outra cidade ou estado — deslocamento sob consulta</option>
               </select>
             </div>
           </div>
@@ -737,7 +803,7 @@
 
           <!-- Botão de Envio WhatsApp -->
           <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white font-bold text-xs uppercase tracking-widest transition duration-300 shadow-xl shadow-orange-500/25 flex items-center justify-center gap-2 cursor-pointer">
-            <span>Encaminhar Briefing para o WhatsApp</span>
+            <span>Enviar briefing pelo WhatsApp</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </button>
 
@@ -760,8 +826,8 @@
       <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-medium">
         <a href="#solucoes" class="hover:text-white transition">Ambientes</a>
         <a href="#generos" class="hover:text-white transition">Gêneros</a>
+        <a href="#faq" class="hover:text-white transition">FAQ</a>
         <a href="https://instagram.com/djfloria" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Instagram @djfloria</a>
-        <a href="https://on.soundcloud.com/eGiURAnsH6b6lg6sBx" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">SoundCloud</a>
         <a href="https://wa.me/5541920034522" target="_blank" rel="noopener noreferrer" class="text-orange-400 hover:text-orange-300 font-semibold transition">
           Falar no WhatsApp
         </a>
